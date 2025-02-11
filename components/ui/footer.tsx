@@ -1,4 +1,4 @@
-import Logo from '@/components/ui/logo'
+import FooterLogo from '@/components/ui/footer-logo'
 
 export default function Footer() {
   return (
@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="mb-4 md:mb-0">
           <div className="shrink-0 flex flex-col md:flex-row items-center">
             {/* Logo */}
-            <Logo />
+            <FooterLogo />
             <div className="text-sm text-slate-500 ml-4">
-              Copyright © Cruip<span className="md:hidden lg:inline">. All rights reserved.</span>
+              Copyright ©  2025 Loom AI<span className="md:hidden lg:inline">. All rights reserved.</span>
             </div>
           </div>
         </div>
@@ -18,7 +18,8 @@ export default function Footer() {
           <li>
             <a
               className="flex justify-center items-center text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out"
-              href="#0"
+              href="https://x.com/loomaitrain"
+              target='_blank'
               aria-label="Twitter"
             >
               <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +30,8 @@ export default function Footer() {
           <li>
             <a
               className="flex justify-center items-center text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out"
-              href="#0"
+              href="https://github.com/loomaitrain"
+              target='_blank'
               aria-label="Github"
             >
               <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +42,8 @@ export default function Footer() {
           <li>
             <a
               className="flex justify-center items-center text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out"
-              href="#0"
+              href="https://t.me/loomaitrain"
+              target='_blank'
               aria-label="Telegram"
             >
               <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

@@ -23,7 +23,7 @@ export default function TopicTitle({
             <path className="fill-white dark:fill-slate-800" d="M20.168 32.769c-.11.197-.168.42-.168.645V45.25c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V40l-11.832-7.23Z" />
             <path className="fill-blue-600" d="M43.832 32.769c.11.197.168.42.168.645V45.25c0 .465-.242.896-.639 1.138l-10.666 6.518c-.21.128-.45.196-.695.196V40l11.832-7.23Z" />
           </svg>
-          <span className="font-nycd text-xl text-blue-600 ml-4">{name}</span>
+          <span className="text-xl text-blue-600 ml-4">{name}</span>
         </>
       }
       {segment === 'guides' &&
@@ -42,7 +42,7 @@ export default function TopicTitle({
             <path className="fill-white dark:fill-slate-800" d="M20.168 32.769c-.11.197-.168.42-.168.645V45.25c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V40l-11.832-7.23Z" />
             <path className="fill-purple-600" d="M43.832 32.769c.11.197.168.42.168.645V45.25c0 .465-.242.896-.639 1.138l-10.666 6.518c-.21.128-.45.196-.695.196V40l11.832-7.23Z" />
           </svg>
-          <span className="font-nycd text-xl text-purple-600 ml-4">{name}</span>
+          <span className="text-xl text-purple-600 ml-4">{name}</span>
         </>
       }
       {segment === 'help' &&
@@ -61,7 +61,7 @@ export default function TopicTitle({
             <path className="fill-white dark:fill-slate-800" d="M20.168 32.769c-.11.197-.168.42-.168.645V45.25c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V40l-11.832-7.23Z" />
             <path className="fill-sky-600" d="M43.832 32.769c.11.197.168.42.168.645V45.25c0 .465-.242.896-.639 1.138l-10.666 6.518c-.21.128-.45.196-.695.196V40l11.832-7.23Z" />
           </svg>      
-          <span className="font-nycd text-xl text-sky-600 ml-4">{name}</span>
+          <span className="text-xl text-sky-600 ml-4">{name}</span>
         </>
       }
     </>

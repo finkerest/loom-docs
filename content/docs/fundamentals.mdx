@@ -1,23 +1,110 @@
 ---
-title: "Basics & Fundamentals"
-summary: "This guide will give you everything you need to start using the Docs Marketing API to manage audiences, control automation workflows, sync email activity with your database, and more."
+title: "What is Loom AI?"
+summary: "Loom AI is a Solana-focused AI training platform that iterates through human classification, fine-tuning, and accuracy validation to create high-performance models."
 topicTitle: "Documentation"
 topicSlug: "documentation"
 nextTitle: "Methods and Parameters"
 nextSlug: "/documentation/methods-and-parameters"   
 ---
 
-## The basics
+## Introduction
 
-The Docs Marketing API provides programmatic access to Docs data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
+Loom AI specializes in an iterative training cycle, ensuring that models continuously improve based on real-world data and feedback.
 
-To use the Docs API, you need a Docs account. What you can do with the API depends on what level of Docs plan you have. Once you have an account and are logged in, you can get an API key and begin making calls to the API.
+### How Loom AI Works:
 
-### Using Docs
+<ol>
+  <li>
+    <b>Model Creation</b>
+    <ul>
+      <li>
+        Developers define their AI model's goal (e.g., detecting scam SPL tokens).
+      </li>
+      <li>
+        Initial training datasets are selected from the Solana blockchain.
+      </li>
+      <li>
+        Model parameters and learning configurations are set up.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Data Classification</b>
+    <ul>
+      <li>
+        The model is exposed to raw blockchain data.
+      </li>
+      <li>
+        Human reviewers classify key data points (e.g., transaction patterns, holder distribution, bundle checks).
+      </li>
+      <li>
+        Classification results provide labeled training data for improved accuracy.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Fine-Tuning & Learning</b>
+    <ul>
+      <li>
+        Loom AI integrates with Hugging Face for AI model fine-tuning.
+      </li>
+      <li>
+        The model retrains using classified data, refining its accuracy.
+      </li>
+      <li>
+        Developers can review logs, adjust parameters, and re-run training as needed.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Accuracy Validation</b>
+    <ul>
+      <li>
+        Trained models undergo rigorous testing against real-world scenarios.
+      </li>
+      <li>
+        Users validate predictions and provide additional feedback.
+      </li>
+      <li>
+        Models are retrained multiple times to reach optimal confidence levels.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Standardized Scoring System</b>
+    <ul>
+      <li>
+        Each model is assigned an industry-standard accuracy score.
+      </li>
+      <li>
+        Developers use these scores to determine readiness for production.
+      </li>
+      <li>
+        Loom AI assigns accuracy score based on multiple evaluation metrics:
+        <ul>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Deployment & Integration</b>
+    <ul>
+      <li>
+        Once validated, models can be deployed via API or SDK.
+      </li>
+      <li>
+        Developers integrate AI models into their Solana applications for real-time use.
+      </li>
+      <li>
+        Continuous monitoring ensures models adapt to evolving blockchain trends.
+      </li>
+    </ul>
+  </li>
+</ol>
 
-Whether you're managing your own campaigns, providing Docs services to your customers or clients, or writing a mobile app, the Docs Marketing API has features to manage and sync your contact data.
+$$\sqrt{a^2 + b^2}$$
 
-You can also use the Docs API to handle data in different ways for different purposes. If you are syncing a large amount of data with Docs, you can use batches to avoid hitting the API request limits. For building integrations that let other users access data from their own [Docs accounts](#0), you should [authenticate with OAuth 2](#0). And if you're developing an app for iOS or Android, the Mobile SDK provides an easy way to work with a mobile-focused subset of the Docs API's functionality.
+Loom AI follows this cycle iteratively, refining models with each step until they reach high precision and reliability.
 
 ## API structure
 

@@ -7,6 +7,8 @@ import PostModalVideo from './modal-video'
 import PostAccordion from './accordion'
 import PostTag from './tag'
 import PostTable, { TableHead, TableBody, TableHeadRow, TableBodyRow, TableTh, TableTd } from './table'
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 import rehypePrettyCode from "rehype-pretty-code";
 
@@ -84,7 +86,8 @@ export function CustomMDX(props: any) {
       components={{ ...mdxComponents, ...(props.components || {}) }}
       options={{
         mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [[rehypeKatex, rehypePrettyCode, rehypePrettyCodeOptions]],
         },
       }}
     />

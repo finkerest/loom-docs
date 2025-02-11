@@ -35,7 +35,7 @@ export default function Search() {
             <path d="m14.707 13.293-1.414 1.414-2.4-2.4 1.414-1.414 2.4 2.4ZM6.8 12.6A5.8 5.8 0 1 1 6.8 1a5.8 5.8 0 0 1 0 11.6Zm0-2a3.8 3.8 0 1 0 0-7.6 3.8 3.8 0 0 0 0 7.6Z" />
           </svg>
           <span>
-            Search<span className="hidden sm:inline"> for anything</span>…
+            Search<span className="hidden sm:inline"> for anything Loom</span>…
           </span>
         </div>
         <div className="flex items-center justify-center h-5 w-5 font-medium text-slate-500 rounded-sm border border-slate-200 shadow-xs ml-3 dark:bg-slate-700 dark:text-slate-400 dark:border-slate-600">
