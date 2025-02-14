@@ -1,0 +1,168 @@
+---
+title: "Quick Start"
+summary: "A quick guide to get you started with Loom AI SDK & Hugging Face."
+topicTitle: "Guides"
+topicSlug: "guides"
+nextTitle: "Building w/ Hugging Face"
+nextSlug: "/guides/build-hugging-face"   
+---
+
+## Step 1: Set Up Your Environment
+
+Before using Loom AI, ensure you have the necessary dependencies installed.
+
+### 1. Install Python
+
+Loom AI requires Python 3.8 or higher. You can download and install Python from: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>
+
+Verify installation by running:
+
+```bash
+python --version
+```
+
+### 2. Install Loom AI SDK
+
+Loom AI provides a Python SDK for easy integration.
+
+```bash
+pip install loom-ai-sdk
+```
+
+### 3. Set Up a Virtual Environment (Recommended)
+
+```bash
+python -m venv loom_env
+source loom_env/bin/activate  # macOS/Linux
+loom_env\Scripts\activate  # Windows
+```
+
+## Step 2: Authenticate with Loom AI
+
+To use the API, you need an API key. Sign up at https://loomai.io and retrieve your API key.
+
+Set up authentication:
+
+```bash
+from loom_ai import LoomAI
+api_key = "YOUR_LOOM_AI_API_KEY"
+loom = LoomAI(api_key)
+```
+
+## Step 3: Load Data from Solana
+
+You can fetch on-chain data using Loom AI’s API.
+
+```bash
+data = loom.fetch_data("solana", dataset="transactions")
+print(data.head())
+```
+
+## Step 4: Train Your First Model
+
+Loom AI allows you to train a model based on blockchain data.
+
+```bash
+model = loom.create_model(name="SPL_Scam_Detector", objective="classification")
+model.train(dataset=data, epochs=10)
+```
+
+## Step 5. Fine-Tune Your Model with Hugging Face 🤗
+
+Loom AI integrates with Hugging Face for fine-tuning models to improve accuracy.
+
+Fine-Tune a Model with Pre-Trained Transformers
+
+```bash
+from transformers import AutoModel, AutoTokenizer, Trainer, TrainingArguments
+
+# Load a pre-trained model
+model_name = "bert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModel.from_pretrained(model_name)
+
+# Tokenize dataset
+def tokenize_function(examples):
+    return tokenizer(examples["text"], padding="max_length", truncation=True)
+
+tokenized_data = data.map(tokenize_function, batched=True)
+
+# Set training arguments
+training_args = TrainingArguments(
+    output_dir="./results",
+    evaluation_strategy="epoch",
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    num_train_epochs=3,
+    weight_decay=0.01,
+)
+
+# Train model
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_data["train"],
+    eval_dataset=tokenized_data["test"]
+)
+
+trainer.train()
+```
+
+## Step 6: Evaluate and Deploy
+
+After training, evaluate the model’s accuracy:
+
+```bash
+accuracy = model.evaluate(metric="accuracy")
+print(f"Model Accuracy: {accuracy}%")
+```
+
+If the accuracy is sufficient, deploy the model:
+
+```bash
+model.deploy()
+```
+
+## Step 7: Make Predictions
+
+Once deployed, query the model for predictions.
+
+```bash
+prediction = model.predict(input_data={"token": "SPL_ABC123"})
+print(prediction)
+```
+
+## Next Steps
+
+<ul>
+  <li>
+    Explore fine-tuning models with Hugging Face.
+  </li>
+  <li>
+    Integrate the Loom AI API into your Solana-based application.
+  </li>
+  <li>
+    Monitor real-time predictions using the SDK.
+  </li>
+</ul>
+
+
+## Generate your API key
+
+Generate your Loom AI API key [here](https://trainloom.com/account).
+
+* Log in with Google or Email and head over to Account section.
+* Click "Generate API key".
+* If you already have an API key listed to use for your application, simply copy it.
+
+Here's is a walk-through of generating your API key:
+
+<ModalVideo
+  thumb="/images/content-image-01.jpg"
+  thumbWidth={680}
+  thumbHeight={382}
+  thumbAlt="Modal video thumbnail"
+  video="/videos/video.mp4"
+  videoWidth={1920}
+  videoHeight={1080} />
+

@@ -1,0 +1,162 @@
+---
+title: "Example 1: DeFi & Token Trend Prediction"
+summary: "Modeling time-sensitive trend insights for traders."
+topicTitle: "Documentation"
+topicSlug: "documentation"
+nextTitle: "Important Takeaways"
+nextSlug: "/documentation/important-1"   
+---
+
+<Banner type="important">Note: This is a high-level outline. Technical implementation is up to interpretation.</Banner>
+
+## Step-by-Step Process
+
+### 1. Data Collection from Solana Blockchain
+<ul>
+    <li>
+      Sources of Data:
+        <ul>
+          <li>
+            DEX Transactions (e.g., Raydium, Orca, Jupiter)
+          </li>
+          <li>
+            Liquidity Pool Movements
+          </li>
+          <li>
+            On-chain Buy/Sell Orders
+          </li>
+          <li>
+            Wallet Holdings & Large Transactions
+          </li>
+          <li>
+            Staking & Yield Farming Patterns
+          </li>
+        </ul>
+    </li>
+    <li>
+      Loom AI aggregates this data into a structured format (CSV/JSON).
+    </li>
+  </ul>
+### 2. Feature Engineering & Preprocessing
+<ul>
+  <li>
+    Price Changes Over Time (Moving Averages, MACD, RSI)
+  </li>
+  <li>
+    Liquidity Inflows/Outflows (How much liquidity is added/removed)
+  </li>
+  <li>
+    Large Whale Transactions (High-volume trades & wallet movements)
+  </li>
+  <li>
+    Holder Distribution Trends (Are new wallets accumulating tokens?)
+  </li>
+  <li>
+    Token Pair Correlation (Does this token move in sync with others?)
+  </li>
+</ul>
+### 3. Human Classification & Market Context Analysis
+<ul>
+    <li>
+      Human reviewers label market events (e.g., “bullish,” “bearish,” “neutral” trends).
+    </li>
+    <li>
+      Classification data helps the AI model learn to recognize similar trends in the future.
+    </li>
+  </ul>
+### 4. Fine-Tuning with Hugging Face Models
+<ul>
+    <li>
+      Loom AI leverages Hugging Face transformer models to train the AI for market prediction.
+    </li>
+    <li>
+      Model types include:
+        <ul>
+          <li>
+            Time-Series Transformers (e.g., Temporal Fusion Transformers)
+          </li>
+          <li>
+            Graph Neural Networks (GNNs) (For wallet relationship mapping)
+          </li>
+          <li>
+            LSTM/RNN Models (For trend forecasting based on past data)
+          </li>
+        </ul>
+    </li>
+    <li>
+      The model learns from labeled DeFi trends and refines its predictions.
+    </li>
+  </ul>
+### 5. Model Validation & Accuracy Scoring
+<ul>
+    <li>
+      AI predictions are compared against actual market movements to measure accuracy.
+    </li>
+    <li>
+      Metrics used for validation:
+        <ul>
+          <li>
+            Mean Absolute Error (MAE)
+          </li>
+          <li>
+            Root Mean Square Error (RMSE)
+          </li>
+          <li>
+            F1 Score for Classification Tasks
+          </li>
+          <li>
+            AUC-ROC for Trend Classification
+          </li>
+        </ul>
+    </li>
+    <li>
+      If the accuracy is below the threshold, the model is retrained.
+    </li>
+  </ul>
+### 6. Deployment & API Integration
+<ul>
+    <li>
+      The trained model is deployed as an API, allowing developers to query predictions.
+    </li>
+    <li>
+      Example API call for predicting a token's trend:
+      ```bash
+        curl -X POST "https://api.trainloom.com/v1/defi_trends"
+        -H "Authorization: Bearer YOUR_API_KEY"
+        -d '{"token": "SOL", "timeframe": "7d"}'
+      ```
+      Eg. Request
+
+      ```bash
+        {
+          "token": "SOL",
+          "predicted_trend": "bullish",
+          "confidence": 92.4
+        }
+      ```
+      Eg. Response
+    </li>
+    <li>
+      If the accuracy is below the threshold, the model is retrained.
+    </li>
+  </ul>
+### 7. Continuous Learning & Market Adaptation
+<ul>
+  <li>
+  As new blockchain data arrives, the model updates itself with:
+      <ul>
+        <li>
+          Latest market conditions
+        </li>
+        <li>
+          New classified trend data
+        </li>
+        <li>
+          Evolving trading patterns
+        </li>
+      </ul>
+  </li>
+  <li>
+    Loom AI ensures that predictions stay relevant and accurate.
+  </li>
+</ul>

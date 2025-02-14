@@ -87,7 +87,7 @@ export function CustomMDX(props: any) {
       options={{
         mdxOptions: {
           remarkPlugins: [remarkMath],
-          rehypePlugins: [[rehypeKatex, rehypePrettyCode, rehypePrettyCodeOptions]],
+          rehypePlugins: [rehypeKatex, [rehypePrettyCode, rehypePrettyCodeOptions]],
         },
       }}
     />

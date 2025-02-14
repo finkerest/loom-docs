@@ -1,0 +1,124 @@
+---
+title: "Loom AI Expanded"
+summary: "Building with Loom AI expanded."
+topicTitle: "Guides"
+topicSlug: "guides" 
+---
+
+## Fine-Tuning for Loom AI
+
+Loom AI fine-tunes Hugging Face models specifically for Solana blockchain applications. Below is a specialized guide for fine-tuning an SPL Scam Detection model.
+
+## Step 1: Data Collection from Solana
+
+Fetch Solana blockchain data:
+
+```bash
+from loom_ai import LoomAI
+api_key = "YOUR_LOOM_AI_API_KEY"
+loom = LoomAI(api_key)
+data = loom.fetch_data("solana", dataset="transactions")
+```
+
+## Step 2: Preprocess & Tokenize Blockchain Data
+
+Convert transaction history, wallet behaviors, and metadata into NLP-friendly tokens:
+
+```bash
+def preprocess_data(data):
+    return {"text": [f"Sender: {tx['sender']} Receiver: {tx['receiver']} Amount: {tx['amount']}]" for tx in data]}
+
+tokenized_data = preprocess_data(data)
+tokenized_dataset = tokenizer(tokenized_data["text"], padding=True, truncation=True, return_tensors="pt")
+```
+
+## Step 3: Choose the Right Model
+
+For blockchain fraud detection, a transformer-based model such as `roberta-base` or `distilbert-base-uncased` is ideal:
+
+```bash
+model_name = "roberta-base"
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
+```
+
+## Step 4: Fine-Tune the Model
+
+Train the model specifically on classified scam/non-scam transactions:
+
+```bash
+training_args = TrainingArguments(
+    output_dir="./loom_results",
+    evaluation_strategy="epoch",
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
+    num_train_epochs=5,
+    learning_rate=5e-5,
+    weight_decay=0.01,
+)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset,
+    eval_dataset=tokenized_dataset
+)
+
+trainer.train()
+```
+
+## Step 5: Evaluate Accuracy & Metrics
+
+Check F1 score, precision, and recall to measure scam detection performance:
+
+```bash
+from sklearn.metrics import classification_report
+
+y_true = [...]  # True labels
+y_pred = trainer.predict(tokenized_dataset).predictions.argmax(-1)
+print(classification_report(y_true, y_pred))
+```
+
+## Step 6: Save and Deploy the Fine-Tuned Model
+
+```bash
+model.save_pretrained("./loom_fine_tuned_model")
+tokenizer.save_pretrained("./loom_fine_tuned_model")
+```
+
+## Step 7: Real-Time Predictions via API
+
+Once deployed, you can query Loom AI’s model for scam detection:
+
+```bash
+prediction = loom.predict(input_data={"transaction": "sol_txn_id"})
+print(prediction)
+```
+
+## Best Practices for High Accuracy Fine-Tuning
+
+### 1. Use Domain-Specific Data
+
+* Ensure labeled blockchain transactions contain a mix of scam and non-scam examples.
+
+* Incorporate real Solana market behaviors (e.g., whale movements, bot trading patterns).
+
+### 2. Optimize Model Parameters
+
+* Increase training epochs (5-10) for complex patterns.
+
+* Experiment with different batch sizes (16-32) for memory optimization.
+
+* Fine-tune learning rates (2e-5, 5e-5, 1e-4) to prevent under/overfitting.
+
+### 3. Implement Active Learning
+
+* Continuously label new scams and retrain models.
+
+* Use human-in-the-loop validation for complex fraud patterns.
+
+### 4. Monitor Accuracy Regularly
+
+* Check AUC-ROC and Precision-Recall to ensure real-world performance.
+
+* Re-train the model weekly/monthly as blockchain behaviors evolve.
+

@@ -1,0 +1,59 @@
+---
+title: "What is Loom AI?"
+summary: "Loom AI is a Solana-focused AI training platform that iterates through human classification, fine-tuning, and accuracy validation to create high-performance models."
+topicTitle: "Documentation"
+topicSlug: "documentation"
+nextTitle: "Model Scoring System"
+nextSlug: "/documentation/scoring"   
+---
+
+## Introduction
+
+Loom AI specializes in an iterative training cycle, ensuring that models continuously improve based on real-world data and feedback.
+
+## How Loom AI Works:
+
+<Image
+  src="/images/cycle.png"
+  width="1000"
+  height="400"
+  alt="Cycle"
+/>
+
+### 1. Model Creation
+
+* Developers define their AI model's goal (e.g., detecting scam SPL tokens).
+* Initial training datasets are selected from the Solana blockchain.
+* Model parameters and learning configurations are set up.
+
+### 2. Data Classification
+
+* The model is exposed to raw blockchain data.
+* Human reviewers classify key data points (e.g., transaction patterns, holder distribution, bundle checks).
+* Classification results provide labeled training data for improved accuracy.
+
+### 3. Fine-Tuning & Learning
+
+* Loom AI integrates with Hugging Face for AI model fine-tuning.
+* The model retrains using classified data, refining its accuracy.
+* Developers can review logs, adjust parameters, and re-run training as needed.
+
+### 4. Accuracy Validation
+
+* Trained models undergo rigorous testing against real-world scenarios.
+* Users validate predictions and provide additional feedback.
+* Models are retrained multiple times to reach optimal confidence levels.
+
+### 5. Standardized Scoring System
+
+* Each model is assigned an industry-standard accuracy score.
+* Developers use these scores to determine readiness for production.
+* For more information, check out our <a href="/documentation/scoring">Model Scoring System</a> section.
+
+### 6. Deployment & Integration
+
+* Once validated, models can be deployed via API or SDK.
+* Developers integrate AI models into their Solana applications for real-time use.
+* Continuous monitoring ensures models adapt to evolving blockchain trends.
+
+Loom AI follows this cycle iteratively, refining models with each step until they reach high precision and reliability.

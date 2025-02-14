@@ -1,0 +1,97 @@
+---
+title: "Example 2: Scam Detection"
+summary: "Modeling the biggest prevalent issue on Solana: scams & rug-pulls."
+topicTitle: "Documentation"
+topicSlug: "documentation"
+nextTitle: "Quick Start"
+nextSlug: "/guides/quick-start"   
+---
+
+<Banner type="important">Note: This is a high-level outline. Technical implementation is up to interpretation.</Banner>
+
+## Step-by-Step Integration of Hugging Face w/ Loom AI
+
+### 1. Token Data Collection & Preprocessing
+<ul>
+  <li>
+    Loom AI collects on-chain data from Solana, including:
+      <ul>
+        <li>
+          Transaction history
+        </li>
+        <li>
+          Holder distribution
+        </li>
+        <li>
+          Token metadata
+        </li>
+        <li>
+          Contract creation timestamps
+        </li>
+      </ul>
+  </li>
+  <li>
+    This raw chain data is converted into structured datasets (CSV/JSON format).
+  </li>
+</ul>
+
+### 2. Human Classification
+<ul>
+  <li>
+  A group of human reviewers labels SPL tokens as scam or legitimate based on historical fraud patterns.
+  </li>
+  <li>
+  This labeled data is stored for model training.
+  </li>
+</ul>
+
+### 3. Feature Engineering & Tokenization
+<ul>
+  <li>
+  Loom AI preprocesses the structured dataset:
+  <ul>
+    <li>
+    Removes noise (e.g., insignificant transactions).
+    </li>
+    <li>
+    Converts blockchain transactions into numerical embeddings.
+    </li>
+    <li>
+    Uses Hugging Face’s tokenization methods to transform structured data into input vectors.
+    </li>
+  </ul>
+  </li>
+</ul>
+
+### 4. Model Selection & Fine-Tuning
+<ul>
+  <li>
+  Loom AI leverages Hugging Face’s pre-trained transformer models (e.g., BERT, DistilBERT, Roberta).
+  </li>
+  <li>
+  The model is fine-tuned using the labeled Solana dataset.
+  </li>
+  <li>
+  The loss function is optimized using cross-entropy for binary classification (Scam/Legit).
+  </li>
+</ul>
+
+### 5. Model Validation & Accuracy Testing
+<ul>
+  <li>
+  The model is tested using AUC-ROC, F1 Score, and Precision-Recall curves.
+  </li>
+  <li>
+  If accuracy is low, Loom AI retrains the model with additional classified data.
+  </li>
+</ul>
+
+### 6. Deployment via Loom AI API
+<ul>
+  <li>
+  Once the model reaches a high accuracy score, it is deployed as a real-time API.
+  </li>
+  <li>
+  Users can query the API with SPL token contract addresses to check if they are scams.
+  </li>
+</ul>

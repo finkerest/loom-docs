@@ -95,9 +95,6 @@ export default async function SinglePost(
             </article>
           </div>
 
-          {/* Feedback */}
-          <Feedback />
-
           {/* Page navigation */}
           <PageNavigation prevArticle={[post.metadata.prevTitle, post.metadata.prevSlug]} nextArticle={[post.metadata.nextTitle, post.metadata.nextSlug]} />
 

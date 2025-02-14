@@ -1,0 +1,46 @@
+---
+title: "Model Scoring System"
+summary: "Loom AI assigns models an industry-standard accuracy score based on multiple evaluation metrics."
+topicTitle: "Documentation"
+topicSlug: "documentation"
+nextTitle: "Hugging Face"
+nextSlug: "/documentation/hugging-face"   
+---
+
+#### Accuracy: Measures overall correct predictions.
+
+$$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
+
+<i>Used to assess general model reliability.</i>
+
+#### Precision (Positive Predictive Value): Measures the percentage of correctly identified positive cases.
+
+$$Precision = \frac{TP}{TP + FP}$$
+
+<i>Measures the percentage of correctly identified positive cases.</i>
+
+####  Recall (Sensitivity): Evaluates how well the model detects actual positive cases.
+
+$$Recall = \frac{TP}{TP + FN}$$
+
+<i>Evaluates how well the model detects actual positive cases.</i>
+
+####  F1 Score: Balances precision and recall for scam identification.
+
+$$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
+
+<i>Balances precision and recall for better fraud detection.</i>
+
+####  Matthews Correlation Coefficient (MCC): Provides a balanced measure even for imbalanced datasets.
+
+$$MCC = \frac{(TP \times TN) - (FP \times FN)}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}$$
+
+<i>Provides a balanced measure, even for imbalanced datasets.</i>
+
+####  AUC-ROC (Area Under the Curve - Receiver Operating Characteristic): Measures the model's ability to distinguish between positive and negative cases.
+
+$$AUC = \int_{-\infty}^{\infty} TPR(f) \, dFPR(f)$$
+
+<i>Measures the model's ability to distinguish between positive and negative cases.</i>
+
+Every Loom AI model receives a standardized score based on the above metrics.

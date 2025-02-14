@@ -3,8 +3,8 @@ title: "What is Loom AI?"
 summary: "Loom AI is a Solana-focused AI training platform that iterates through human classification, fine-tuning, and accuracy validation to create high-performance models."
 topicTitle: "Documentation"
 topicSlug: "documentation"
-nextTitle: "Methods and Parameters"
-nextSlug: "/documentation/methods-and-parameters"   
+nextTitle: "Model Scoring System"
+nextSlug: "/documentation/scoring"   
 ---
 
 ## Introduction
@@ -15,7 +15,7 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
 
 <ol>
   <li>
-    <b>Model Creation</b>
+    Model Creation
     <ul>
       <li>
         Developers define their AI model's goal (e.g., detecting scam SPL tokens).
@@ -29,7 +29,7 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
     </ul>
   </li>
   <li>
-    <b>Data Classification</b>
+    Data Classification
     <ul>
       <li>
         The model is exposed to raw blockchain data.
@@ -43,7 +43,7 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
     </ul>
   </li>
   <li>
-    <b>Fine-Tuning & Learning</b>
+    Fine-Tuning & Learning
     <ul>
       <li>
         Loom AI integrates with Hugging Face for AI model fine-tuning.
@@ -57,7 +57,7 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
     </ul>
   </li>
   <li>
-    <b>Accuracy Validation</b>
+    Accuracy Validation
     <ul>
       <li>
         Trained models undergo rigorous testing against real-world scenarios.
@@ -71,7 +71,7 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
     </ul>
   </li>
   <li>
-    <b>Standardized Scoring System</b>
+    Standardized Scoring System
     <ul>
       <li>
         Each model is assigned an industry-standard accuracy score.
@@ -79,15 +79,10 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
       <li>
         Developers use these scores to determine readiness for production.
       </li>
-      <li>
-        Loom AI assigns accuracy score based on multiple evaluation metrics:
-        <ul>
-        </ul>
-      </li>
     </ul>
   </li>
   <li>
-    <b>Deployment & Integration</b>
+    Deployment & Integration
     <ul>
       <li>
         Once validated, models can be deployed via API or SDK.
@@ -102,9 +97,59 @@ Loom AI specializes in an iterative training cycle, ensuring that models continu
   </li>
 </ol>
 
-$$\sqrt{a^2 + b^2}$$
-
 Loom AI follows this cycle iteratively, refining models with each step until they reach high precision and reliability.
+
+
+## Standardized Scoring System
+Loom AI assigns models an industry-standard accuracy score based on multiple evaluation metrics:
+
+<ul>
+  <li>
+    Accuracy: Measures overall correct predictions.
+
+    $$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
+
+    <i>Used to assess general model reliability.</i>
+  </li>
+  <li>
+    Precision (Positive Predictive Value): Measures the percentage of correctly identified positive cases.
+
+    $$Precision = \frac{TP}{TP + FP}$$
+
+    <i>Measures the percentage of correctly identified positive cases.</i>
+  </li>
+  <li>
+    Recall (Sensitivity): Evaluates how well the model detects actual positive cases.
+
+    $$Recall = \frac{TP}{TP + FN}$$
+
+    <i>Evaluates how well the model detects actual positive cases.</i>
+  </li>
+  <li>
+    F1 Score: Balances precision and recall for scam identification.
+
+    $$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
+
+    <i>Balances precision and recall for better fraud detection.</i>
+  </li>
+  <li>
+    Matthews Correlation Coefficient (MCC): Provides a balanced measure even for imbalanced datasets.
+
+    $$MCC = \frac{(TP \times TN) - (FP \times FN)}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}$$
+
+    <i>Provides a balanced measure, even for imbalanced datasets.</i>
+  </li>
+  <li>
+    AUC-ROC (Area Under the Curve - Receiver Operating Characteristic): Measures the model's ability to distinguish between positive and negative cases.
+
+    $$AUC = \int_{-\infty}^{\infty} TPR(f) \, dFPR(f)$$
+
+    <i>Measures the model's ability to distinguish between positive and negative cases.</i>
+  </li>
+</ul>
+
+Every Loom AI model receives a standardized score based on the above metrics.
+
 
 ## API structure
 
